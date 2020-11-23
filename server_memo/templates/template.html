@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Memory Game</title>
+
+  <link rel="stylesheet" href="../static/styles/memo.css">
+</head>
+<body>
+
+  <section class="memory-game">
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[1]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[2]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[3]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[4]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[5]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[6]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[7]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[8]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[9]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[10]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[11]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+    <div class="memory-card" >
+      <img class="front-face" src="{{ url_for('static', filename='imgs/'+images[12]) }}" alt="Żyrafa Martunia">
+      <img class="back-face" src="../static/imgs/photos/cover.jpg" alt="Żyrafa Martunia">
+    </div>
+    <button id="refresh" type="button" name="button">Zagraj ponownie</button>
+    </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+  <script src="../static/scripts/memo.js"></script>
+</body>
+</html>
