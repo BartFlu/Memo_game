@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, current_app, flash
+from flask import Blueprint, render_template, request, redirect, current_app, flash, url_for
 from werkzeug.utils import secure_filename
 import pathlib
 import os
@@ -26,19 +26,19 @@ def upload_image():
 
             if image.filename == "":  # esuring that file has a file name.
                 print("No filename")
-                return redirect(request.url)
+                return redirect(url_for('memo.main_view'))
 
             if allowed_image_filename(image.filename):
                 filename = secure_filename(image.filename)
 
                 image.save(os.path.join(current_app.config['USER_IMG'], filename))
-
-                return redirect(request.url)
+                print('image saved')
+                return redirect(url_for('memo.main_view'))
             else:
                 flash('That file extension is not allowed')
-                redirect(request.url)
+                redirect(url_for('memo_game.main_view'))
 
-    return redirect(request.url)  # check if correct syntax
+    return redirect(url_for('memo.main_view'))  # check if correct syntax
 
 
 def allowed_image_filename(filename):
