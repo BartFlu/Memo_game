@@ -10,7 +10,8 @@ memo_game = Blueprint('memo', __name__)
 @memo_game.route('/')
 def main_view():
 
-    img_collections = os.listdir(current_app.config['DEF_IMG'])
+    img_collections = os.listdir(current_app.config['IMG_COL'])
+    img_collections.remove('photos')
 
     return render_template('main_view.html', img_collections=img_collections)
 
