@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, current_app, flash
+from werkzeug.utils import secure_filename
 import pathlib
 import os
 import random
@@ -9,11 +10,7 @@ memo_game = Blueprint('memo', __name__)
 @memo_game.route('/')
 def main_view():
 
-    script_path = pathlib.Path(__file__).parent.absolute()
-    file_path = pathlib.Path(script_path, "static/imgs")
-
-    img_collections = os.listdir(file_path)
-    img_collections.remove('photos')
+    img_collections = os.listdir(current_app.config['DEF_IMG'])
 
     return render_template('main_view.html', img_collections=img_collections)
 
@@ -27,11 +24,37 @@ def upload_image():
 
             image = request.files["image"]
 
-            print(image)
+            if image.filename == "":  # esuring that file has a file name.
+                print("No filename")
+                return redirect(request.url)
 
-            return redirect(request.url)
+            if allowed_image_filename(image.filename):
+                filename = secure_filename(image.filename)
 
-    return redirect('memo_game.main_view')  # check if correct syntax
+                image.save(os.path.join(current_app.config['USER_IMG'], filename))
+
+                return redirect(request.url)
+            else:
+                flash('That file extension is not allowed')
+                redirect(request.url)
+
+    return redirect(request.url)  # check if correct syntax
+
+
+def allowed_image_filename(filename):
+
+    # We only want files with a . in the filename
+    if "." not in filename:
+        return False
+
+    # Split the extension from the filename - dot is a separator, only one split will be made
+    ext = filename.rsplit(".", 1)[1]
+
+    # Check if the extension is in AV_EXTENSIONS
+    if ext.upper() in current_app.config["AV_EXTENSIONS"]:
+        return True
+    else:
+        return False
 
 
 @memo_game.route('/game')
