@@ -12,7 +12,7 @@ def create_app():
     app.config['IMG_COL'] = img_path
     app.config['USER_IMG'] = down_path
     app.config['AV_EXTENSIONS'] = ["JPEG", "JPG", "PNG"]
-    app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
     from server_memo.main_view import memo_game
     app.register_blueprint(memo_game)

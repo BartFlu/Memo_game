@@ -21,20 +21,24 @@ def upload_image():
 
     if request.method == "POST":
 
-        if request.files:
+        if 'files[]' not in request.files:
+            print('no files detected')
+            return redirect(request.url)
 
-            image = request.files["image"]
+        files = request.files.getlist('files[]')
+        print(files)
 
-            if image.filename == "":  # esuring that file has a file name.
+        for file in files:
+            if file.filename == "":  # esuring that file has a file name.
                 print("No filename")
                 return redirect(url_for('memo.main_view'))
 
-            if allowed_image_filename(image.filename):
-                filename = secure_filename(image.filename)
+            if allowed_image_filename(file.filename):
+                filename = secure_filename(file.filename)
 
-                image.save(os.path.join(current_app.config['USER_IMG'], filename))
+                file.save(os.path.join(current_app.config['USER_IMG'], filename))
                 print('image saved')
-                return redirect(url_for('memo.main_view'))
+
             else:
                 flash('That file extension is not allowed')
                 redirect(url_for('memo_game.main_view'))
