@@ -69,7 +69,7 @@ def game():
     script_path = pathlib.Path(__file__).parent.absolute()
     file_path = pathlib.Path(script_path, "static/imgs/Default")
     files = os.listdir(file_path)
-    files.remove('photos')
+    print(files)
     for i in range(1, 7):
         place = random.choice(possible_places)
         possible_places.remove(place)
@@ -79,7 +79,7 @@ def game():
         place = random.choice(possible_places)
         possible_places.remove(place)
         imgs[place] = file
-
+    print(imgs)
     return render_template('template.html', images=imgs)
 
 
