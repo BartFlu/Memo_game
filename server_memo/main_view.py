@@ -62,7 +62,7 @@ def upload_image():
             flash('That file extension is not allowed')
             redirect(url_for('memo_game.main_view'))
 
-    return redirect(url_for('memo.main_view'))  # check if correct syntax
+    return redirect(url_for('memo.game', mode='custom'))  # check if correct syntax
 
 
 def allowed_image_filename(filename):
