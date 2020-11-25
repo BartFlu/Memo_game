@@ -12,6 +12,10 @@ def main_view():
 
     return render_template('main_view.html')
 
+@memo_game.route('/choose_own')
+def create_uploads():
+
+    return render_template('upload.html')
 
 @memo_game.route("/upload-image", methods=["GET", "POST"])
 def upload_image():
