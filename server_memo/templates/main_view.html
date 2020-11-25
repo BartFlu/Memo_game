@@ -9,37 +9,10 @@
     <div class="jumbotron">
       <h1>Welcome to memo game!</h1>
       <p>Use default set or prepare your own.</p>
-      <hr>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Choose set
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          {% for col in img_collections %}
-          <a class="dropdown-item" href="{{ col }}">{{ col}}</a>
-          {% endfor %}
+      <form action="/game">
+          <input type="submit" value="Play" />
+      </form>
 
-        </div>
-      </div>
-      <h1>Upload an image</h1>
-            <hr>
-
-            <form action="/upload-image" method="POST" enctype="multipart/form-data">
-
-              <div class="form-group">
-                <label>Select image</label>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="files[]" multiple="true" id="image">
-                  <label class="custom-file-label" for="image">Select image...</label>
-                </div>
-              </div>
-
-
-
-
-              <button type="submit" class="btn btn-primary">Upload</button>
-
-            </form>
 
     </div>
 

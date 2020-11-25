@@ -10,10 +10,7 @@ memo_game = Blueprint('memo', __name__)
 @memo_game.route('/')
 def main_view():
 
-    img_collections = os.listdir(current_app.config['IMG_COL'])
-
-
-    return render_template('main_view.html', img_collections=img_collections)
+    return render_template('main_view.html')
 
 
 @memo_game.route("/upload-image", methods=["GET", "POST"])
