@@ -11,7 +11,7 @@ memo_game = Blueprint('memo', __name__)
 def main_view():
 
     img_collections = os.listdir(current_app.config['IMG_COL'])
-    img_collections.remove('photos')
+
 
     return render_template('main_view.html', img_collections=img_collections)
 
@@ -69,7 +69,7 @@ def game():
     script_path = pathlib.Path(__file__).parent.absolute()
     file_path = pathlib.Path(script_path, "static/imgs/Default")
     files = os.listdir(file_path)
-    print(files)
+    files.remove('photos')
     for i in range(1, 7):
         place = random.choice(possible_places)
         possible_places.remove(place)
@@ -79,7 +79,6 @@ def game():
         place = random.choice(possible_places)
         possible_places.remove(place)
         imgs[place] = file
-    print(imgs)
     return render_template('template.html', images=imgs)
 
 
